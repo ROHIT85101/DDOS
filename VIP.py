@@ -34,7 +34,7 @@ async def help_command(update: Update, context: CallbackContext):
             "*🔸 /start* - Start interacting with the bot.\n"
             "*🔸 /attack* - Trigger an attack operation.\n"
             "*🔸 /redeem* - Redeem a code.\n"
-            "*🔸 /get_id* - ID LENA HAI LOUDE ?.\n"
+            "*🔸 /get_id* - Get Your Id.\n"
         )
     else:
         help_text = (
@@ -137,7 +137,7 @@ async def attack(update: Update, context: CallbackContext):
             remaining_time = cooldown_period - int(time_diff)
             await context.bot.send_message(
                 chat_id=chat_id,
-                text=f"*⏳ MADARCHOD RUK JA {remaining_time}*",
+                text=f"*⏳ WAIT ATTACK IN PROGRESS ♨️{remaining_time}*",
                 parse_mode='Markdown'
             )
             return
@@ -162,7 +162,7 @@ async def attack(update: Update, context: CallbackContext):
     asyncio.create_task(run_attack(chat_id, ip, port, duration, context))
 async def papa_bol(update: Update, context: CallbackContext):
     user_id = update.effective_user.id 
-    message = f"MADARCHOD KA ID HAI: `{user_id}`" 
+    message = f"YOUR ID IS 🆔: `{user_id}`" 
     await context.bot.send_message(chat_id=update.effective_chat.id, text=message, parse_mode='Markdown')
 async def run_attack(chat_id, ip, port, duration, context):
     try:
